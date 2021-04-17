@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>EMS</title>
+</head>
+
+<body>
+    <header id="Header">
+        <nav>
+            <img src="img/EMS.svg" alt="logoImage">
+            <ul>
+                <li><a href="#Header">Intro</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Gadgets">Shop</a></li>
+            </ul>
+            <button onclick="displayModal()">0</button>
+        </nav>
+        <h1>THE E-MILLENIAL STORE</h1>
+        <img src="img/heroImage.png" alt="heroImage">
+        <a href="#Gadgets">SHOP NOW</a>
+    </header>
+    <div class="backdrop"></div>
+    <section id="ModalShop" class="modal">
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <input id="Name" onfocusout="nameInput(this)" type="text" placeholder="Your Name" name="name">
+            <p>Please enter your name</p>
+            <input id="Email" onfocusout="emailInput(this)" onchange="emailInput(this)" type="email" placeholder="Your Email" name="email">
+            <p>Please enter an email</p>
+            <input id="PhoneNumber" onfocusout="phoneInput(this)" onchange="phoneInput(this)" type="tel" placeholder="Your Phone Number" name="phone">
+            <p>Please enter your telephone number</p>
+            <h2>Total Amount to be Paid</h2>
+            <h1>₦<span id="TotalPrice">0</span></h1>
+        </div>
+        <button onclick="displayModal()" class="continue">Continue Shopping</button>
+        <button onclick="payWithPaystack()">Checkout</button>
+    </section>
+    <section id="ModalPayment" class="modal">
+        <div>
+            <h1>Thank you, <span id="OutputName"></span>, your order has been received</h1>
+            <img src="img/check.svg" alt="">
+            <h2>Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody id="Tbody">
+                </tbody>
+            </table>
+        </div>
+        <button onclick="displayModalPayment()">OK</button>
+    </section>
+    <section class="about" id="About">
+        <p>E-Millenial Store is an hypothertical
+            online store for gadgets we believe
+            every 'Millenial' or 'Gen-Z' should
+            should have today. We've got mobile phones,
+            laptops, smartwatches and other gadgets.
+            Explore all our gadgets and choose the
+            ones that suit you.
+        </p>
+    </section>
+    <section id="Gadgets">
+        <h1>OUR GADGETS</h1>
+        <div class="gadgets">
+            <div class="container">
+                <div class="image">
+                    <img src="./img/product1.png" alt="SAMSUNG TV">
+                    <a href="">Price</a>
+                    <p>₦500,000</p>
+                </div>
+                <h2>SAMSUNG TV</h2>
+                <button id="samsungtv" onclick="addItem(this)">ADD TO CART</button>
+            </div>
+            <div class="container">
+                <div class="image">
+                    <img src="./img/product2.png" alt="PIXEL 4a">
+                    <a href="">Price</a>
+                    <p>₦250,000</p>
+                </div>
+                <h2>PIXEL 4a</h2>
+                <button id="pixel4a" onclick="addItem(this)">ADD TO CART</button>
+            </div>
+            <div class="container">
+                <div class="image">
+                    <img src="./img/product3.png" alt="PS 5">
+                    <a href="">Price</a>
+                    <p>₦300,000</p>
+                </div>
+                <h2>PS 5</h2>
+                <button id="ps5" onclick="addItem(this)">ADD TO CART</button>
+            </div>
+            <div class="container">
+                <div class="image">
+                    <img src="./img/product4.png" alt="MACBOOK AIR">
+                    <a href="">Price</a>
+                    <p>₦800,000</p>
+                </div>
+                <h2>MACBOOK AIR</h2>
+                <button id="macbookair" onclick="addItem(this)">ADD TO CART</button>
+            </div>
+            <div class="container">
+                <div class="image">
+                    <img src="./img/product5.png" alt="APPLE WATCH">
+                    <a href="">Price</a>
+                    <p>₦95,000</p>
+                </div>
+                <h2>APPLE WATCH</h2>
+                <button id="applewatch" onclick="addItem(this)">ADD TO CART</button>
+            </div>
+            <div class="container">
+                <div class="image">
+                    <img src="./img/product6.png" alt="AIR PODS">
+                    <a href="">Price</a>
+                    <p>₦60,000</p>
+                </div>
+                <h2>AIR PODS</h2>
+                <button id="airpods" onclick="addItem(this)">ADD TO CART</button>
+            </div>
+        </div>
+    </section>
+    <footer id="Footer">
+        <img src="img/EMS.svg" alt="logoImage">
+        <p>Designed and Crafted by a Frontend Ninja</p>
+    </footer>
+    <script src="./script.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script> 
+</body>
+
+</html>
