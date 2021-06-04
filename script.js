@@ -144,10 +144,16 @@ var phoneInput = (input) => {
             input.classList.add("input"); // Update the appearance of the input element
             return; // Exit the function
         }
-        if (input.value.length < 11) { // If it isn't long enough
-            input.nextElementSibling.innerHTML = "Your telephone number cannot be less than 11 characters" // Set the error type
-            input.nextElementSibling.style.display = "block"; // Display the error
-            input.classList.add("input"); // Update the appearance of the input element
+        if (input.value.length < 11 || input.value.length > 11) { // If it isn't the right length
+            if (input.value.length < 11) { // If it isn't long enough
+                input.nextElementSibling.innerHTML = "Your telephone number cannot be less than 11 characters" // Set the error type
+                input.nextElementSibling.style.display = "block"; // Display the error
+                input.classList.add("input"); // Update the appearance of the input element
+            } else if (input.value.length > 11) { // If it isn't short enough
+                input.nextElementSibling.innerHTML = "Your telephone number cannot be more than 11 characters" // Set the error type
+                input.nextElementSibling.style.display = "block"; // Display the error
+                input.classList.add("input"); // Update the appearance of the input element
+            }
         } else { // If it matches the validation format
             input.nextElementSibling.style.display = "none"; // Don't display the error
             input.classList.remove("input"); // Update the appearance of the input element
